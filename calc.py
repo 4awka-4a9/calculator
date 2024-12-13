@@ -64,8 +64,7 @@ class Ui_Dialog(object):
         self.butPlus.setObjectName("butPlus")
         self.butMinus = QtWidgets.QPushButton(Dialog)
         self.butMinus.setGeometry(QtCore.QRect(240, 110, 60, 60))
-        self.butMinus.setStyleSheet("background-color: rgb(255, 181, 100);\n"
-"")
+        self.butMinus.setStyleSheet("background-color: rgb(255, 181, 100);")
         self.butMinus.setObjectName("butMinus")
         self.butDiv = QtWidgets.QPushButton(Dialog)
         self.butDiv.setGeometry(QtCore.QRect(240, 170, 60, 60))
@@ -132,8 +131,12 @@ class Ui_Dialog(object):
             self.resultLabel.setText(self.resultLabel.text() + number )
 
     def result(self):
-        res = eval(self.resultLabel.text())
-        self.resultLabel.setText(str(int(res)))
+        try:
+            res = eval(self.resultLabel.text())
+            self.resultLabel.setText(str(int(res)))
+        except:
+            self.resultLabel.setText("ERROR")
+
 
 
         self.isEqual = True
